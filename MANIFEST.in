@@ -1,2 +1,2 @@
 include LICENSE
-include tap_google_analytics/ga_cubes.json
+include tap_google_analytics_ua/ga_cubes.json
