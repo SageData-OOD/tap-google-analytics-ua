@@ -1,7 +1,7 @@
-# tap-google-analytics
+# tap-google-analytics-ua
 
 This tap is currently under development, and incomplete.
 
 ---
 
-Copyright &copy; 2019 Stitch
+Copyright &copy; 2022 Sagedata
