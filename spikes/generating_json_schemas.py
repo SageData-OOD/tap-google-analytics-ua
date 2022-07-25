@@ -527,7 +527,7 @@ def write_metadata(mdata, field, exclusions):
     mdata = metadata.write(mdata, ("properties", field["id"]), "fieldExclusions", list(exclusions))
     mdata = metadata.write(mdata, ("properties", field["id"]), "behavior", field["type"])
 
-    # TODO: What other pieces of metadata do we need? probably tap_google_analytics.ga_name, tap_google_analytics.profile_id, etc?
+    # TODO: What other pieces of metadata do we need? probably tap_google_analytics_ua.ga_name, tap_google_analytics_ua.profile_id, etc?
     # - Also, metric/dimension needs to be in metadata for the UI (refer to adwords for key) 'behavior'
 
     return mdata

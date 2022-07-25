@@ -5,7 +5,7 @@ import datetime
 from pprint import pprint
 from singer import get_logger
 
-from tap_google_analytics.client import Client
+from tap_google_analytics_ua.client import Client
 
 LOGGER = get_logger()
 

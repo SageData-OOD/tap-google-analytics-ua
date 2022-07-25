@@ -1,11 +1,11 @@
 import unittest
 import requests
 import re
-import tap_google_analytics.client as GoogleAnalyticsClient
+import tap_google_analytics_ua.client as GoogleAnalyticsClient
 from unittest.mock import patch
 from unittest.mock import MagicMock
 
-from tap_google_analytics.client import Client
+from tap_google_analytics_ua.client import Client
 
 import singer
 

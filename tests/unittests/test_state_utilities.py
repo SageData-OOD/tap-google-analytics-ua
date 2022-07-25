@@ -3,7 +3,7 @@ import pytz
 import unittest
 from unittest.mock import Mock, MagicMock, patch
 
-from tap_google_analytics import clean_state_for_report, get_start_date
+from tap_google_analytics_ua import clean_state_for_report, get_start_date
 
 class TestCleanStateForReport(unittest.TestCase):
 

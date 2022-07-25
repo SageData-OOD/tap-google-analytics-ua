@@ -3,7 +3,7 @@ import pytz
 import unittest
 from unittest.mock import Mock, MagicMock, patch
 
-from tap_google_analytics.discover import calculate_custom_fields_support, \
+from tap_google_analytics_ua.discover import calculate_custom_fields_support, \
     get_custom_fields_supertypes, types_to_schema
 
 class TestCalculateCustomFieldsSupport(unittest.TestCase):

@@ -3,7 +3,7 @@ from functools import reduce
 import singer
 from singer import metadata, Schema, CatalogEntry, Catalog
 
-from tap_google_analytics.reports import PREMADE_REPORTS
+from tap_google_analytics_ua.reports import PREMADE_REPORTS
 
 LOGGER = singer.get_logger()
 

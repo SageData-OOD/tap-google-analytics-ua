@@ -2,8 +2,8 @@ import unittest
 from unittest.mock import Mock, MagicMock, patch
 from singer import utils
 
-import tap_google_analytics.sync
-from tap_google_analytics.sync import sync_report, generate_sdc_record_hash
+import tap_google_analytics_ua.sync
+from tap_google_analytics_ua.sync import sync_report, generate_sdc_record_hash
 
 # Test State Tracking Globals
 reports = None
@@ -38,7 +38,7 @@ class TestIsDataGoldenBookmarking(unittest.TestCase):
         error_after = None
         reports_synced = 0
 
-    @patch("tap_google_analytics.sync.report_to_records")
+    @patch("tap_google_analytics_ua.sync.report_to_records")
     @patch("singer.write_record")
     @patch("singer.write_state")
     def test_bookmarking_stops_at_first_false(self, *args):
@@ -54,7 +54,7 @@ class TestIsDataGoldenBookmarking(unittest.TestCase):
         # Ensure we paginated through all 4 days, not stopping at third
         self.assertEqual(self.client.get_report.call_count, 4)
 
-    @patch("tap_google_analytics.sync.report_to_records")
+    @patch("tap_google_analytics_ua.sync.report_to_records")
     @patch("singer.write_record")
     @patch("singer.write_state")
     def test_bookmark_is_saved_if_first_is_false(self, *args):
@@ -68,7 +68,7 @@ class TestIsDataGoldenBookmarking(unittest.TestCase):
         self.assertEqual({'bookmarks': {'123': {'12345': {'last_report_date': '2019-11-03'}}}}, state)
         self.assertEqual(self.client.get_report.call_count, 1)
 
-    @patch("tap_google_analytics.sync.report_to_records")
+    @patch("tap_google_analytics_ua.sync.report_to_records")
     @patch("singer.write_record")
     @patch("singer.write_state")
     def test_historical_sync_writes_bookmarks_and_stops_at_first_non_golden(self, *args):
@@ -97,7 +97,7 @@ class TestIsDataGoldenBookmarking(unittest.TestCase):
         self.assertEqual({'bookmarks': {'123': {'12345': {'last_report_date': '2019-11-03'}}}}, state)
         self.assertEqual(self.client.get_report.call_count, 6)
 
-    @patch("tap_google_analytics.sync.report_to_records")
+    @patch("tap_google_analytics_ua.sync.report_to_records")
     @patch("singer.write_record")
     @patch("singer.write_state")
     def test_historical_sync_interrupted_does_not_write_bookmarks(self, *args):

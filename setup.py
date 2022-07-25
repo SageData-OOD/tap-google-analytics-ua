@@ -2,13 +2,13 @@
 from setuptools import setup
 
 setup(
-    name="tap-google-analytics",
+    name="tap-google-analytics-ua",
     version="1.1.3",
     description="Singer.io tap for extracting data",
     author="Stitch",
     url="http://singer.io",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
-    py_modules=["tap_google_analytics"],
+    py_modules=["tap_google_analytics-ua"],
     install_requires=[
         "singer-python==5.9.0",
         "requests==2.22.0",
@@ -26,11 +26,11 @@ setup(
     },
     entry_points="""
     [console_scripts]
-    tap-google-analytics=tap_google_analytics:main
+    tap-google-analytics-ua=tap_google_analytics_ua:main
     """,
-    packages=["tap_google_analytics"],
+    packages=["tap_google_analytics_ua"],
     package_data = {
-        "tap_google_analytics": ["tap_google_analytics/ga_cubes.json"]
+        "tap_google_analytics_ua": ["tap_google_analytics_ua/ga_cubes.json"]
     },
     include_package_data=True,
 )
