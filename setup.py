@@ -8,7 +8,7 @@ setup(
     author="Stitch",
     url="http://singer.io",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
-    py_modules=["tap_google_analytics-ua"],
+    py_modules=["tap_google_analytics_ua"],
     install_requires=[
         "singer-python==5.9.0",
         "requests==2.22.0",
