@@ -211,9 +211,9 @@ def write_metadata(mdata, field, cubes, custom_fields_support=None):
                                "unsupported-description",
                                "This field cannot be selected because it is not defined in profile(s): {}".format(
                                    ', '.join(unsupported_profiles)))
-    mdata = metadata.write(mdata, ("properties", field["id"]), "tap_google_analytics.cubes", list(cubes))
+    mdata = metadata.write(mdata, ("properties", field["id"]), "tap_google_analytics_ua.cubes", list(cubes))
     mdata = metadata.write(mdata, ("properties", field["id"]), "behavior", field["type"])
-    mdata = metadata.write(mdata, ("properties", field["id"]), "tap_google_analytics.group", field["group"])
+    mdata = metadata.write(mdata, ("properties", field["id"]), "tap_google_analytics_ua.group", field["group"])
 
     return mdata
 
@@ -230,11 +230,11 @@ def generate_base_schema():
 def generate_base_metadata(all_cubes, schema):
     mdata = metadata.get_standard_metadata(schema=schema, key_properties=["_sdc_record_hash"])
     mdata = metadata.to_map(mdata)
-    mdata = metadata.write(mdata, (), "tap_google_analytics.all_cubes", list(all_cubes))
+    mdata = metadata.write(mdata, (), "tap_google_analytics_ua.all_cubes", list(all_cubes))
     mdata = reduce(lambda mdata, field_name: metadata.write(mdata, ("properties", field_name), "inclusion", "automatic"),
                    ["_sdc_record_hash", "start_date", "end_date", "account_id", "web_property_id", "profile_id"],
                    mdata)
-    mdata = reduce(lambda mdata, field_name: metadata.write(mdata, ("properties", field_name), "tap_google_analytics.group", "Report Fields"),
+    mdata = reduce(lambda mdata, field_name: metadata.write(mdata, ("properties", field_name), "tap_google_analytics_ua.group", "Report Fields"),
                    ["_sdc_record_hash", "start_date", "end_date", "account_id", "web_property_id", "profile_id"],
                    mdata)
     return mdata

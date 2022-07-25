@@ -79,7 +79,7 @@ mdata = [
         "breadcrumb": [],
         "metadata": {
             "selected": True,
-            "tap-google-analytics.reports": [
+            "tap-google-analytics-ua.reports": [
                 # This metadata value describes each report definition.
                 # The tap will take these and emit data for each "stream"
                 # defined by the (canonicalized?) name of the report.

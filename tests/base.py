@@ -38,7 +38,7 @@ class GoogleAnalyticsBaseTest(unittest.TestCase):
     @staticmethod
     def tap_name():
         """The name of the tap"""
-        return "tap-google-analytics"
+        return "tap-google-analytics-ua"
 
     @staticmethod
     def get_type():
